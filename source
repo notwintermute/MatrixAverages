@@ -1,5 +1,4 @@
 import numpy as np
-from math import floor  # not necessary just using it for the example
 
 n = 4  # you can change this
 # making the example matrix
@@ -8,10 +7,14 @@ n = 4  # you can change this
 # 1 0 1 0
 # 0 1 0 1
 inp = []
-for i in range(n * n):
-    inp.append((i + 1 + floor(i / n) % 2) % 2)
-A = np.array(inp).reshape(n, n)
+for i in range(n):
+    inp.append([])
+    for j in range(n):
+        inp[i].append((1+i+j)%2)
+A = np.array(inp)
 
+# making the calculation matrices
+# if your matrix isn't changing dimensions then you only need to do this once
 # making the dividing matrix
 aDiv = 9 * np.ones((n, n))
 line1 = 6 * np.ones((1, n))
